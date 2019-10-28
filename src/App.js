@@ -1,9 +1,13 @@
 import React from 'react';
 
+
+import TodoForm from './components/TodoComponents/TodoForm';
+import TodoList from './components/TodoComponents/TodoList';
+
 const taskData = [
   {
-    task: "Build React Todo App",
-    id: 10282019,
+    task: " ",
+    id: null,
     completed: true
   }
 ]
@@ -15,13 +19,13 @@ class App extends React.Component {
   constructor(){
     super();
     this.state = {
-      items: taskData
+      items: taskData,
     };
   }
 
   addItem = itemName => {
     const newItem = {
-      task: itemName,
+      name: itemName,
       id: Date.now(),
       completed: false
     };
@@ -29,13 +33,47 @@ class App extends React.Component {
       items: [...this.state.items, newItem]
     });
   };
+
+  toggleItem = id => {
+    this.setState({
+      items: this.state.items.map(item => {
+        if(item.id === id) {
+        return {
+          ...item, 
+          completed: !item.completed
+        };
+      } else {
+        return item;
+      }
+    })
+  });
+  };
+
+  clearCompleted = () => {
+    this.setState({
+      items: this.state.items.filter(item => !item.completed)
+    });
+  };
+
+  resetForm = () => {
+    this.setState(this.state)
+  }
   
   render() {
     return (
-      <div>
+      <section className="wrapper">
+      <div className="header">
         <h2>Christine's Todo App!</h2>
-        <TodoForm addItem={this.addItem}/>
+        <TodoForm 
+          addItem={this.addItem}/>
       </div>
+      <TodoList 
+        items={this.state.items}
+        toggleItem={this.toggleItem}
+        clearCompleted={this.clearCompleted}
+        resetForm={this.resetForm}
+      />
+      </section>
     );
   }
 }
