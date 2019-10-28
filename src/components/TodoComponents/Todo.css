@@ -1,0 +1,45 @@
+.wrapper{
+    border: 1px solid #818285;
+    margin: 10% auto;
+    width: 60%;
+    text-align: center;
+    background: #1a090d;
+    color: #fffffa;
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+button {
+    background: #7cf0bd;
+    color: #1a090d;
+   
+}
+
+.tasks {
+    background: #fffffa;
+    
+    border: 4px solid #515052;
+    box-shadow: #818285;
+    width: 70%;
+    padding: 2%;
+    margin: 0 auto;
+}
+
+div.item {
+    background: #ce8964;
+    border: 2px solid black;
+    border-top: 1px solid #515052;
+    border-bottom: 1px solid #515052;
+    box-shadow: #515052;
+    color: white;
+    margin: 0 auto;
+    width: 60%;
+    height: 75px;
+}
+
+input[type="text"]{
+    border: 1px solid #515052;
+
+}

@@ -4,11 +4,13 @@ import React from 'react';
 import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
 
+import './components/TodoComponents/Todo.css';
+
 const taskData = [
   {
-    task: " ",
-    id: null,
-    completed: true
+    task: "Build React App",
+    id: 10282019,
+    completed: false
   }
 ]
  
@@ -19,6 +21,7 @@ class App extends React.Component {
   constructor(){
     super();
     this.state = {
+      name: "Build React App",
       items: taskData,
     };
   }
@@ -55,24 +58,24 @@ class App extends React.Component {
     });
   };
 
-  resetForm = () => {
-    this.setState(this.state)
-  }
+  
   
   render() {
     return (
       <section className="wrapper">
-      <div className="header">
+      <div>
         <h2>Christine's Todo App!</h2>
         <TodoForm 
           addItem={this.addItem}/>
       </div>
+      <div className="tasks">
       <TodoList 
         items={this.state.items}
         toggleItem={this.toggleItem}
         clearCompleted={this.clearCompleted}
-        resetForm={this.resetForm}
+        
       />
+      </div>
       </section>
     );
   }

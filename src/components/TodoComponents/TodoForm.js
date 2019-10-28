@@ -18,6 +18,9 @@ class TodoForm extends React.Component {
         e.preventDefault();
         this.props.addItem(this.state.item);
     }
+    resetForm = () => {
+        this.setState(this.state)
+    }
 
     render(){
         return(
@@ -26,10 +29,11 @@ class TodoForm extends React.Component {
                 <input type="text" 
                 value={this.item} 
                 name="item" 
+                placeholder="Add new item here"
                 onChange={this.handleChanges} 
                 />
                 </label>
-                <button>Add Item</button>
+                <button onClick={this.resetForm}>Add Item</button>
             </form>
         )
     }
