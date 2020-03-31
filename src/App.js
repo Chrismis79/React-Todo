@@ -6,13 +6,7 @@ import TodoList from './components/TodoComponents/TodoList';
 
 import './components/TodoComponents/Todo.css';
 
-const taskData = [
-  {
-    task: "Build React App",
-    id: 10282019,
-    completed: false
-  }
-]
+
  
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -21,8 +15,8 @@ class App extends React.Component {
   constructor(){
     super();
     this.state = {
-      name: "Build React App",
-      items: taskData,
+      
+      items: []
     };
   }
 
